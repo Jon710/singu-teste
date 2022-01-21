@@ -1,24 +1,23 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {navigationRef} from './RootNavigation';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import Start from './src/screens/Start';
-import Genius from './src/screens/Genius';
+import Game from './src/screens/Game';
+import Restart from './src/screens/Restart';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default App => {
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Start"
         screenOptions={{
           headerShown: false,
         }}>
         <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Genius" component={Genius} />
+        <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="Restart" component={Restart} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
